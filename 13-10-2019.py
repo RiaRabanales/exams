@@ -13,7 +13,7 @@ def añadir_películas(listapeliculas):
             print("Error: el videoclub no puede almacenar tantas copias.")
         else:
             listapeliculas.append(nuevapelicula)
-    return totalcopias
+    return listapeliculas
 
 def calcular_copias(listapeliculas):
     totalcopias = 0
