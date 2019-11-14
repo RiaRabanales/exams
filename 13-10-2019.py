@@ -1,6 +1,27 @@
 #María Rabanales González - examen 1º DAW
 
-def añadir_películas():
+def añadir_películas(listapeliculas):
+    totalcopias = calculo_copias(listapeliculas)
+    if totalcopias >= 3000:
+        print("Error: el videoclub no puede almacenar más copias.")
+    else:
+        campoid = len(listapeliculas) + 1
+        nuevapelicula = añadir_película()
+        nuevapelicula.insert(0, campoid)
+        totalcopias += nuevapelicula[7]
+        if totalcopias > 3000:
+            print("Error: el videoclub no puede almacenar tantas copias.")
+        else:
+            listapeliculas.append(nuevapelicula)
+    return totalcopias
+
+def calculo_copias(listapeliculas):
+    totalcopias = 0
+    for i in range(len(listapeliculas)):
+        totalcopias += listapeliculas[i][7]
+    return totalcopias
+
+def añadir_película():
     print("Para añadir película introduce los siguientes datos:")
     titulo = input("Título: ")
     director = input("Director: ")
@@ -67,8 +88,6 @@ def buscar_parametros(indice, texto):
 
 salir = False
 listapeliculas = []
-campoid = 0
-totalcopias = 0
 while salir == False:
     print("===================\n   =  M E N U  =\n===================\n" +
           " 1) añadir película\n 2) reservar película\n" +
@@ -76,17 +95,7 @@ while salir == False:
           "===================")
     opcion = int(input("¿Qué opción deseas? "))
     if opcion == 1:
-        if totalcopias >= 3000:
-            print("Error: el videoclub no puede almacenar más copias.")
-        else:
-            campoid += 1
-            nuevapelicula = añadir_películas()
-            nuevapelicula.insert(0, campoid)
-            totalcopias = totalcopias + nuevapelicula[7]
-            if totalcopias > 3000:
-                print("Error: el videoclub no puede almacenar tantas copias.")
-            else:
-                listapeliculas.append(nuevapelicula)
+        añadir_películas(listapeliculas)
     elif opcion == 2:
         reservar_película()
     elif opcion == 3:
@@ -96,4 +105,3 @@ while salir == False:
         salir = True
     else:
         print("Opción incorrecta. Prueba de nuevo.\n===================")
-
