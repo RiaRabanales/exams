@@ -1,7 +1,7 @@
 #María Rabanales González - examen 1º DAW
 
 def añadir_películas(listapeliculas):
-    totalcopias = calculo_copias(listapeliculas)
+    totalcopias = calcular_copias(listapeliculas)
     if totalcopias >= 3000:
         print("Error: el videoclub no puede almacenar más copias.")
     else:
