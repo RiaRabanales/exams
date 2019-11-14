@@ -15,7 +15,7 @@ def añadir_películas(listapeliculas):
             listapeliculas.append(nuevapelicula)
     return totalcopias
 
-def calculo_copias(listapeliculas):
+def calcular_copias(listapeliculas):
     totalcopias = 0
     for i in range(len(listapeliculas)):
         totalcopias += listapeliculas[i][7]
